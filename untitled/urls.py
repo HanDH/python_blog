@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from blog.views import PostList, PostDetail
+from blog.views import PostList, PostDetail, PostCreate
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', PostList.as_view(),name='home'),
     url(r'^(?P<pk>\d+)/$',PostDetail.as_view(), name= 'detail'),
+    url(r'^create/$', PostCreate.as_view(), name= 'create'),
 ]
